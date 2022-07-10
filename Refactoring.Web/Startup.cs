@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Refactoring.Web.Services;
+using Refactoring.Web.Services.Interfaces;
 
 namespace Refactoring.Web
 {
@@ -18,6 +20,12 @@ namespace Refactoring.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IPrintAdvertService, PrintAdvertService>();
+            services.AddTransient<IDealService, DealService>();
+            services.AddTransient<IChamberOfCommerceApi, ChamberOfCommerceApi>();
+            services.AddTransient<IDistrictOrderProcessorFactory, DistrictOrderProcessorFactory>();
+            services.AddTransient<IOrderService, OrderService>();
+
             services.AddControllersWithViews();
         }
 

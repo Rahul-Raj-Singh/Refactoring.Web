@@ -1,0 +1,7 @@
+namespace Refactoring.Web.Services.Interfaces
+{
+    public interface IDateTimeResolver
+    {
+        bool IsTodayTuesday();
+    }
+}
